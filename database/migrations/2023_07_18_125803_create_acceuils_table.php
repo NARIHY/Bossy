@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('acceuils', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('description');
+            $table->longText('content');
+            $table->string('picture')->nullable();
+            $table->string('video')->nullable();
             $table->timestamps();
         });
     }

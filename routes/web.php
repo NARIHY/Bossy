@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeAdminControllers;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,17 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::prefix('/administration')->name('Admin.')->group( function () {
+    //Route de l'accceuil de l'admin
+
+    //Route Home ici
+    Route::get('/Home-bossy', [HomeAdminControllers::class, 'index'])->name('home.bossy');
+    Route::get('/Home-bossy/creation', [HomeAdminControllers::class, 'create'])->name('home.create');
+    Route::post('/Home-bossy/creation', [HomeAdminControllers::class, 'store'])->name('home.store');
+    Route::delete('/Home-bossy/{id}/Supression', [HomeAdminControllers::class, 'delete'])->name('home.delete');
+    Route::get('/Home-bossy/{id}/edition', [HomeAdminControllers::class, 'edit'])->name('home.edit');
+    Route::put('/Home-bossy/{id}/edition', [HomeAdminControllers::class, 'update'])->name('home.update');
+
+    
+});

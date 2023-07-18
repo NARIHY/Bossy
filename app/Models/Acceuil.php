@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Acceuil extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'description',
+        'content',
+        'picture',
+        'video'
+    ];
 }
