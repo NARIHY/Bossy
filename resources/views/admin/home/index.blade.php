@@ -9,7 +9,7 @@
     <h1>Bossy</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="">Tableau de bord</a></li>
+        <li class="breadcrumb-item"><a href="{{route('Admin.index')}}">Tableau de bord</a></li>
         <li class="breadcrumb-item"><a href="{{route('Admin.home.bossy')}}">Home</a></li>
         <li class="breadcrumb-item active">Liste de tous les publication dans notre acceuil</li>
       </ol>

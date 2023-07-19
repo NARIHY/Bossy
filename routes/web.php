@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeAdminControllers;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -33,7 +34,7 @@ require __DIR__.'/auth.php';
 
 Route::prefix('/administration')->name('Admin.')->group( function () {
     //Route de l'accceuil de l'admin
-
+    Route::get('/',[AdminController::class, 'index'])->name('index');
     //Route Home ici
     Route::get('/Home-bossy', [HomeAdminControllers::class, 'index'])->name('home.bossy');
     Route::get('/Home-bossy/creation', [HomeAdminControllers::class, 'create'])->name('home.create');
