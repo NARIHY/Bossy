@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\HomeAdminControllers;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -43,5 +44,9 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     Route::get('/Home-bossy/{id}/edition', [HomeAdminControllers::class, 'edit'])->name('home.edit');
     Route::put('/Home-bossy/{id}/edition', [HomeAdminControllers::class, 'update'])->name('home.update');
 
-    
+    //gerer la liste des étudiants
+    Route::get('/Etudiant', [EtudiantController::class, 'index'])->name('etudiant');
+    Route::get('/Etudiant/Ajouter-un-etudiants', [EtudiantController::class, 'create'])->name('etudiant.create');
+    Route::post('/Etudiant/Ajouter-un-etudiants', [EtudiantController::class, 'store'])->name('etudiant.store');
+    Route::get('/Etudiant/{id}/voir-un-etudiant', [EtudiantController::class, 'show'])->name('etudiant.show');
 });

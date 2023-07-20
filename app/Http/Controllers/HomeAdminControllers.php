@@ -19,7 +19,7 @@ class HomeAdminControllers extends Controller
     public function index()
     {
         $home = Acceuil::paginate(25);
-        return view('admin.home.index', [
+        return view('admin.visuel.home.index', [
             'home' => $home
         ]);
     }
@@ -30,7 +30,7 @@ class HomeAdminControllers extends Controller
 
     public function create()
     {
-        return view('admin.home.options.create');
+        return view('admin.visuel.home.options.create');
     }
 
     /**
@@ -87,7 +87,7 @@ class HomeAdminControllers extends Controller
     public function edit(string $id)
     {
         $acceuil = Acceuil::findOrFail($id);
-        return view('admin.home.options.edit',[
+        return view('admin.visuel.home.options.edit',[
             'acceuil' =>$acceuil
         ]);
 

@@ -222,7 +222,7 @@
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{route('Admin.etudiant')}}">
               <i class="bi bi-circle"></i><span>Nos étudiants</span>
             </a>
           </li>
