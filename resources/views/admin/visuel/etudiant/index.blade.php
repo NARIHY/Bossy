@@ -16,7 +16,7 @@
   </div><!-- End Page Title -->
   <div class="container">
     @if(session('success'))
-    <div class="alert alert-success">
+    <div class="alert alert-success" style="text-align: center">
       {{session('success')}}
     </div>
     @endif
@@ -51,10 +51,15 @@
                       <a href="{{route('Admin.etudiant.show', ['id' => $etudiants->id])}}" class="btn btn-dark"><i class="bi bi-eye-fill"></i></a>
                   </div>
                   <div class="col-4 themed-grid-col">
-                      <a href="#" class="btn btn-primary"><i class="bi bi-wrench"></i></a>
+                      <a href="{{route('Admin.etudiant.edit', ['id' => $etudiants->id])}}" class="btn btn-primary"><i class="bi bi-wrench"></i></a>
                   </div>
                   <div class="col-4 themed-grid-col">
-                      <a href="#" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                    <form action="{{route('Admin.etudiant.delete', ['id' => $etudiants->id])}}" method="post">
+                      @csrf 
+                      @method('DELETE')
+                      <input type="submit" class="btn btn-danger" value="Suprimer">
+                    </form>
+                      
                   </div>
                 </div>
           </td>

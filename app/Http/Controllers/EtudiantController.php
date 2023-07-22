@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EtudiantRequest;
+use App\Http\Requests\EtudiantUpdateRequest;
 use App\Models\Classe;
 use App\Models\Etudiant;
 use App\Models\Promotion;
@@ -77,5 +78,58 @@ class EtudiantController extends Controller
         return view('admin.visuel.etudiant.show', [
             'etudiant' => $etudiant
         ]);
+    }
+
+    /**
+     * Methode permetant d'y diriger vers la vue d'edition vers un eleve
+     *
+     * @param string $id
+     * @param Etudiant $etudiant
+     * @return View
+     */
+    public function edit(string $id, Etudiant $etudiant)
+    {
+        $etudiant = Etudiant::findOrFail($id);
+        $promotion = Promotion::pluck('title', 'id');
+        $classe = Classe::pluck('title', 'id');
+        return view('admin.visuel.etudiant.action.edit', [
+            'etudiant' => $etudiant,
+            'promotion' => $promotion,
+            'classe' => $classe
+        ]);
+    }
+
+    /**
+     * Permet de sauvgarder la mis à jour de l'étudiant
+     *
+     * @param string $id
+     * @param Etudiant $etudiant
+     * @param EtudiantUpdateRequest $request
+     * @return RedirectResponse
+     */
+    public function update(string $id, Etudiant $etudiant, EtudiantUpdateRequest $request)
+    {
+        $etudiant = Etudiant::findOrFail($id);
+        $etudiant->promotion()->sync(['etudiant_id' => $etudiant->id], $request->validated('promotion'));
+        $etudiant->classe()->sync(['etudiant_id' => $etudiant->id], $request->validated('classe'));
+        
+        $etudiant->update($request->validated());
+        
+        $picture = $request->validated('picture');
+        if (empty($picture)){
+            $picture = $etudiant->picture;
+        } else {
+            //image 1
+            $data['picture'] = $picture->store('blog', 'public'); 
+            $etudiant->update($data);
+        }
+        return redirect()->route('Admin.etudiant.edit', ['id' => $etudiant->id])->with('success', 'Modification réussi');
+
+    }
+    public function delete(string $id, Etudiant $etudiant)
+    {
+        $etudiant = Etudiant::findOrFail($id);
+        $etudiant->delete();
+        return redirect()->route('Admin.etudiant')->with('success', 'Suppéssion réussi');
     }
 }

@@ -49,4 +49,9 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     Route::get('/Etudiant/Ajouter-un-etudiants', [EtudiantController::class, 'create'])->name('etudiant.create');
     Route::post('/Etudiant/Ajouter-un-etudiants', [EtudiantController::class, 'store'])->name('etudiant.store');
     Route::get('/Etudiant/{id}/voir-un-etudiant', [EtudiantController::class, 'show'])->name('etudiant.show');
+    Route::get('/Etudiant/{id}/editer', [EtudiantController::class, 'edit'])->name('etudiant.edit');
+    Route::put('/Etudiant/{id}/editer', [EtudiantController::class, 'update'])->name('etudiant.update');
+    Route::delete('/Etudiant/{id}/suprimer', [EtudiantController::class, 'delete'])->name('etudiant.delete');
+
+
 });
