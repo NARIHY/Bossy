@@ -6,11 +6,11 @@
 
 <div class="pagetitle">
     <a href="{{route('Admin.home.create')}}" class="btn btn-success" style="float: right">Ajouter une publication</a>
-    <h1>Bossy</h1>
+    <h1>St joseph</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{route('Admin.index')}}">Tableau de bord</a></li>
-        <li class="breadcrumb-item"><a href="{{route('Admin.home.bossy')}}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{route('Admin.home.St joseph')}}">Home</a></li>
         <li class="breadcrumb-item active">Liste de tous les publication dans notre acceuil</li>
       </ol>
     </nav>

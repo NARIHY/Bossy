@@ -9,6 +9,10 @@ class Promotion extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title'
+    ];
+
     public function etudiants()
     {
         return $this->belongsToMany(Etudiant::class);

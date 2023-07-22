@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\HomeAdminControllers;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PromotionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,12 +38,12 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     //Route de l'accceuil de l'admin
     Route::get('/',[AdminController::class, 'index'])->name('index');
     //Route Home ici
-    Route::get('/Home-bossy', [HomeAdminControllers::class, 'index'])->name('home.bossy');
-    Route::get('/Home-bossy/creation', [HomeAdminControllers::class, 'create'])->name('home.create');
-    Route::post('/Home-bossy/creation', [HomeAdminControllers::class, 'store'])->name('home.store');
-    Route::delete('/Home-bossy/{id}/Supression', [HomeAdminControllers::class, 'delete'])->name('home.delete');
-    Route::get('/Home-bossy/{id}/edition', [HomeAdminControllers::class, 'edit'])->name('home.edit');
-    Route::put('/Home-bossy/{id}/edition', [HomeAdminControllers::class, 'update'])->name('home.update');
+    Route::get('/Home-St joseph', [HomeAdminControllers::class, 'index'])->name('home.St joseph');
+    Route::get('/Home-St joseph/creation', [HomeAdminControllers::class, 'create'])->name('home.create');
+    Route::post('/Home-St joseph/creation', [HomeAdminControllers::class, 'store'])->name('home.store');
+    Route::delete('/Home-St joseph/{id}/Supression', [HomeAdminControllers::class, 'delete'])->name('home.delete');
+    Route::get('/Home-St joseph/{id}/edition', [HomeAdminControllers::class, 'edit'])->name('home.edit');
+    Route::put('/Home-St joseph/{id}/edition', [HomeAdminControllers::class, 'update'])->name('home.update');
 
     //gerer la liste des étudiants
     Route::get('/Etudiant', [EtudiantController::class, 'index'])->name('etudiant');
@@ -54,5 +55,8 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     Route::put('/Etudiant/{id}/editer', [EtudiantController::class, 'update'])->name('etudiant.update');
     Route::delete('/Etudiant/{id}/suprimer', [EtudiantController::class, 'delete'])->name('etudiant.delete');
 
-
+    //promotion
+    Route::get('/Etudiant/Promotion', [PromotionController::class, 'index'])->name('etudiant.promotion');
+    Route::get('/Etudiant/Promotion/ajouter-une-promotion', [PromotionController::class, 'create'])->name('etudiant.promotion.create');
+    Route::post('/Etudiant/Promotion/ajouter-une-promotion', [PromotionController::class, 'store'])->name('etudiant.promotion.store');
 });

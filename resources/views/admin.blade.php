@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>@yield('title') | Bossy</title>
+  <title>@yield('title') | St joseph</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -33,7 +33,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="{{route('Admin.index')}}" class="logo d-flex align-items-center">
         
-        <span class="d-none d-lg-block">Bossy</span>
+        <span class="d-none d-lg-block">St joseph</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -201,7 +201,7 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{{route('Admin.home.bossy')}}">
+            <a href="{{route('Admin.home.St joseph')}}">
               <i class="bi bi-circle"></i><span>Acceuil</span>
             </a>
           </li>
@@ -240,6 +240,11 @@
           <li>
             <a href="{{route('Admin.etudiant.cette')}}">
               <i class="bi bi-circle"></i><span>Nos étudiants cette année</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('Admin.etudiant.promotion')}}">
+              <i class="bi bi-circle"></i><span>Tous nos promotion</span>
             </a>
           </li>
         </ul>
@@ -371,7 +376,7 @@
 <!-- ======= Footer ======= -->
 <footer id="footer" class="footer">
   <div class="copyright">
-    &copy; Copyright <strong><span>Bossy</span></strong> Tech
+    &copy; Copyright <strong><span>St joseph</span></strong> Tech
   </div>
   
 </footer><!-- End Footer -->

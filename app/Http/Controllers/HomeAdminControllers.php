@@ -61,7 +61,7 @@ class HomeAdminControllers extends Controller
         }
 
         //redirection vers index
-        return redirect()->route('Admin.home.bossy')->with('success', 'Création de la pub réussi');
+        return redirect()->route('Admin.home.St joseph')->with('success', 'Création de la pub réussi');
 
     }
 
@@ -76,7 +76,7 @@ class HomeAdminControllers extends Controller
     {
         $acceuil = Acceuil::findOrFail($id);
         $acceuil->delete();
-        return redirect()->route('Admin.home.bossy')->with('success', 'supréssion de la pub reussi');
+        return redirect()->route('Admin.home.St joseph')->with('success', 'supréssion de la pub reussi');
     }
     /**
      * Sert a rediriger vers la vue d'edition
