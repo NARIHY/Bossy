@@ -13,4 +13,9 @@ class Classe extends Model
     {
         return $this->belongsToMany(Etudiant::class);
     }
+
+    public function totale_ecolage()
+    {
+        return $this->belongsToMany(TotaleEcolage::class);
+    }
 }

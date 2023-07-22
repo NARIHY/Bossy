@@ -5,6 +5,7 @@ use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\HomeAdminControllers;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\TotaleEcolageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,4 +62,11 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     Route::post('/Etudiant/Promotion/ajouter-une-promotion', [PromotionController::class, 'store'])->name('etudiant.promotion.store');
     Route::get('/Etudiant/Promotion/{id}/editer-une-promotion', [PromotionController::class, 'edit'])->name('etudiant.promotion.edit');
     Route::put('/Etudiant/Promotion/{id}/editer-une-promotion', [PromotionController::class, 'update'])->name('etudiant.promotion.update');
+
+    //totale ecolage par année d'étude
+    Route::get('/Scolarite/totale-ecolage-cette-anne', [TotaleEcolageController::class, 'index'])->name('ecolage.totale');
+    Route::get('/Scolarite/totale-ecolage-cette-anne/ajouter', [TotaleEcolageController::class, 'ajouter'])->name('ecolage.totale.ajouter');
+    Route::post('/Scolarite/totale-ecolage-cette-anne/ajouter', [TotaleEcolageController::class, 'store'])->name('ecolage.totale.store');
+    Route::delete('/Scolarite/totale-ecolage-cette-anne/{id}/suprimer', [TotaleEcolageController::class, 'delete'])->name('ecolage.totale.delete');
+
 });
