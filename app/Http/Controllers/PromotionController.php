@@ -45,4 +45,34 @@ class PromotionController extends Controller
         $promotion = Promotion::create($request->validated());
         return redirect()->route('Admin.etudiant.promotion')->with('success', 'Creation du promotion réussi');        
     }
+
+    /**
+     * redirection vers la vue d'edition d'un promotion
+     *
+     * @param Promotion $promotion
+     * @param string $id
+     * @return View
+     */
+    public function edit(Promotion $promotion, string $id)
+    {
+        $promotion = Promotion::findOrFAil($id);
+        return view('admin.visuel.etudiant.promotion.action.edit', [
+            'promotion' => $promotion
+        ]);
+    }
+
+    /**
+     * Permet l'update de promotion
+     *
+     * @param PromotionRequest $request
+     * @param Promotion $promotion
+     * @param string $id
+     * @return RedirectResponse
+     */
+    public function update(PromotionRequest $request, Promotion $promotion, string $id)
+    {
+        $promotion = Promotion::findOrFAil($id);
+        $promotion->update($request->validated());
+        return redirect()->route('Admin.etudiant.promotion.edit', ['id' => $promotion->id])->with('success', 'Modification réussi');       
+    }
 }

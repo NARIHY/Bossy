@@ -36,7 +36,7 @@
                     <th scope="row">{{$prom->id}}</th>
                     <td>{{$prom->title}}</td>
                     <td>
-                        <a href="" class="btn btn-primary">Modifier</a>
+                        <a href="{{route('Admin.etudiant.promotion.edit', ['id' => $prom->id])}}" class="btn btn-primary">Modifier</a>
                     </td>
                 </tr>
             @empty

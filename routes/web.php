@@ -59,4 +59,6 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     Route::get('/Etudiant/Promotion', [PromotionController::class, 'index'])->name('etudiant.promotion');
     Route::get('/Etudiant/Promotion/ajouter-une-promotion', [PromotionController::class, 'create'])->name('etudiant.promotion.create');
     Route::post('/Etudiant/Promotion/ajouter-une-promotion', [PromotionController::class, 'store'])->name('etudiant.promotion.store');
+    Route::get('/Etudiant/Promotion/{id}/editer-une-promotion', [PromotionController::class, 'edit'])->name('etudiant.promotion.edit');
+    Route::put('/Etudiant/Promotion/{id}/editer-une-promotion', [PromotionController::class, 'update'])->name('etudiant.promotion.update');
 });
