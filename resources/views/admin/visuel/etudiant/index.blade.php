@@ -20,22 +20,24 @@
       {{session('success')}}
     </div>
     @endif
-    <table class="table table-striped">
-        <thead>
+
+    <table class="table table-borderless datatable">
+      <thead>
         <tr>
-          <th scope="col">Matricule</th>
-          <th scope="col">Nom</th>
-          <th scope="col">Prénon</th>
-          <th scope="col">Promotion</th>
-          <th scope="col">Classe</th>
-          <th scope="col">Année d'étude</th>
-          <th scope="col"style="color: red">Action</th>
+              <th scope="col">Matricule</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Prénon</th>
+              <th scope="col">Promotion</th>
+              <th scope="col">Classe</th>
+              <th scope="col">Année d'étude</th>
+              <th scope="col"style="color: red">Action</th>
         </tr>
-        </thead>
-        @forelse ($etudiant as $etudiants)
-        <tbody>
-         
-          <th scope="row" style="color: blue">{{$etudiants->matricule}}</th>
+      </thead>
+      
+          <tbody>
+            @foreach ($etudiant as $etudiants)
+            <tr>
+              <th scope="row" style="color: blue">{{$etudiants->matricule}}</th>
           <td>{{$etudiants->nom}}</td>
           <td>{{$etudiants->prenon}}</td>
           @php 
@@ -63,18 +65,14 @@
                   </div>
                 </div>
           </td>
-      @empty
-          <th scope="row"></th>
-          <td></td>
-          <td></td>
-          <td>Aucun resultat pour le moment</td>
-          <td></td>
-          <td></td>
+            </tr>
+            
       
-        
-        </tbody>
-        @endforelse
-      </table>
-      {{$etudiant->links()}}
+            @endforeach
+          </tbody>
+          
+          
+    </table>
+    
   </div>
 @endsection

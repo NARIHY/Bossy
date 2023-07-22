@@ -51,7 +51,22 @@
       </div>
 
       <div>
-        <h1>A étudier ici depuis:</h1>
+        @php 
+        $view = App\Models\Etudiant::where('matricule',  $etudiant->matricule)->paginate(10);
+        
+        @endphp
+        <h4>{{$etudiant->nom}} {{$etudiant->prenon}} a étudié ici depuis l'année:</h4>
+       
+         
+         <ul style="margin-left: 50%">
+            @forelse ($view as $views)
+              <li > <p style="color: red">{{$views->anne_detude}}</p> </li>
+            @empty
+                L'étudiant a commencé ces étude chez nous que depuis peut
+            @endforelse
+          
+         </ul>
+
       </div>
   
       
