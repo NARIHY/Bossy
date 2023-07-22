@@ -221,11 +221,7 @@
               <i class="bi bi-circle"></i><span>Publication à la une</span>
             </a>
           </li>
-          <li>
-            <a href="{{route('Admin.etudiant')}}">
-              <i class="bi bi-circle"></i><span>Nos étudiants</span>
-            </a>
-          </li>
+          
          
           
         </ul>
@@ -233,27 +229,17 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-text"></i><span>Etudiant</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Form Elements</span>
+            <a href="{{route('Admin.etudiant')}}">
+              <i class="bi bi-circle"></i><span>Nos étudiants</span>
             </a>
           </li>
           <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Form Layouts</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Form Editors</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Form Validation</span>
+            <a href="{{route('Admin.etudiant.cette')}}">
+              <i class="bi bi-circle"></i><span>Nos étudiants cette année</span>
             </a>
           </li>
         </ul>

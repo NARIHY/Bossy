@@ -126,10 +126,27 @@ class EtudiantController extends Controller
         return redirect()->route('Admin.etudiant.edit', ['id' => $etudiant->id])->with('success', 'Modification réussi');
 
     }
+
+    /**
+     * Permet de suprimer un etudiant
+     *
+     * @param string $id
+     * @param Etudiant $etudiant
+     * @return RedirectResponse
+     */
     public function delete(string $id, Etudiant $etudiant)
     {
         $etudiant = Etudiant::findOrFail($id);
         $etudiant->delete();
         return redirect()->route('Admin.etudiant')->with('success', 'Suppéssion réussi');
+    }
+
+    public function cette(Etudiant $etudiant)
+    {
+        $date = date('Y');
+        $etudiant = Etudiant::orderBy('created_at', 'desc')->where('anne_detude', $date)->paginate(25);
+        return view('admin.visuel.etudiant.now', [
+            'etudiant' => $etudiant
+        ]);
     }
 }
