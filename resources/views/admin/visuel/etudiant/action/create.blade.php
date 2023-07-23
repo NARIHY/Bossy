@@ -64,7 +64,7 @@
             <select name="anne_detude" id="anne_detude" class="form-control">
                 <option value="">Selectionner une année</option>
                 @for($i = $date; $i >= 1975; $i--)
-                    <option value="{{$i}}">{{$i}}</option>    
+                    <option value="{{$i}}-{{$i+1}}">{{$i}}-{{$i+1}}</option>    
                 @endfor
             </select>
             @error('anne_detude')
