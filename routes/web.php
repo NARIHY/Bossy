@@ -69,4 +69,7 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     Route::post('/Scolarite/totale-ecolage-cette-anne/ajouter', [TotaleEcolageController::class, 'store'])->name('ecolage.totale.store');
     Route::delete('/Scolarite/totale-ecolage-cette-anne/{id}/suprimer', [TotaleEcolageController::class, 'delete'])->name('ecolage.totale.delete');
 
+    //ecolage par moi
+    Route::get('/Scolarite/totale-ecolage-cette-anne/{id}/mois', [TotaleEcolageController::class, 'month'])->name('ecolage.totale.mois');
+
 });

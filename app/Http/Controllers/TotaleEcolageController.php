@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TotaleEcolageRequest;
 use App\Models\Classe;
 use App\Models\TotaleEcolage;
+use App\Perso\EcolageCount;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -66,5 +67,21 @@ class TotaleEcolageController extends Controller
         $totale = TotaleEcolage::findOrFail($id);
         $totale->delete();
         return redirect()->route('Admin.ecolage.totale')->with('success', 'Supréssion reussi');
+    }
+
+
+    public function month(string $id, TotaleEcolage $ecolage)
+    {
+        $ecolage = TotaleEcolage::findOrFail($id);
+        $month = new EcolageCount();
+
+        $totale = $ecolage->prix;
+        $value = $month->month($totale);
+
+        return view('admin.scolarite.totaleEcolage.ecolage_mois.index',[
+            'value' => $value,
+            'ecolage' => $ecolage
+        ]);
+
     }
 }

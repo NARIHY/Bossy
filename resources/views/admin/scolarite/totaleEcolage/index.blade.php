@@ -43,11 +43,20 @@
               <td>{{$totales->anne_detude}}</td>
               <td>{{number_format($totales->prix, thousands_separator: ' ')}} Ar</td>
               <th >
-                <form action="{{route('Admin.ecolage.totale.delete', ['id' => $totales->id])}}" method="post">
-                    @csrf 
-                    @method('DELETE')
-                    <input type="submit" class="btn btn-danger" value="Suprimer">
-                </form>
+                <div class="row mb-3 text-center">
+                  <div class="col-6 themed-grid-col">
+                    <a href="{{route('Admin.ecolage.totale.mois', ['id' => $totales->id])}}" class="btn btn-primary">Voir</a>
+                  </div>
+                  <div class="col-6 themed-grid-col">
+                    <form action="{{route('Admin.ecolage.totale.delete', ['id' => $totales->id])}}" method="post">
+                      @csrf 
+                      @method('DELETE')
+                      <input type="submit" class="btn btn-danger" value="Suprimer">
+                    </form>
+                  </div>
+                  
+                </div>
+                
                      
 
               </th>
