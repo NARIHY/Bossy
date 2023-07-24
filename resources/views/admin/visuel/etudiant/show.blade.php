@@ -68,6 +68,36 @@
          </ul>
 
       </div>
+      @php 
+      $date = date('Y');
+      $date1 = $date + 1 ;
+      $concat = $date.'-'.$date1;
+
+      $ecolage = new App\Perso\EcolageCount();
+      @endphp
+      @if($etudiant->anne_detude === $concat)
+
+      <div>
+
+        
+        <div class="row mb-3 text-center">
+          <div class="col-6 themed-grid-col">
+            <h3>Reste des écolages à payer:</h3>
+          </div>
+          @php 
+            $eco = $ecolage->reste($etudiant->matricule, $etudiant->classe);
+          @endphp
+          <div class="col-6 themed-grid-col">
+            @if($eco == 0)
+              <h3 style="color:blue">Ecolage est payée en totalité</h3>
+            @else
+              <h3 style="color: red">{{number_format($eco, thousands_separator: ' ')}} Ar</h3>
+            @endif
+          </div>
+        </div>
+        
+      </div>
+      @endif
   
       
   

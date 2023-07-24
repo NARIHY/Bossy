@@ -18,4 +18,9 @@ class Classe extends Model
     {
         return $this->belongsToMany(TotaleEcolage::class);
     }
+
+    public function ecolage()
+    {
+        return $this->belongsToMany(Ecolage::class);
+    }
 }
