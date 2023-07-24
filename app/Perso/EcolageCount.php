@@ -24,12 +24,14 @@ class EcolageCount implements EcolageCountInterface
         $ecolage = TotaleEcolage::where('anne_detude', $anne_detude)
                                     ->where('classe', $classe)
                                     ->value('prix');
+        $ecoTotale = $this->month($ecolage);
         //nombre d'ecolage payer par user
         $etudiant = Ecolage::where('matricule', $matricule)
                                 ->where('anne_detude', $anne_detude)
+                                ->where('prix', $ecoTotale)
                                 ->count();     
         //calcule de nombre d'ecolage payer par user
-        $ecoTotale = $this->month($ecolage);
+        
         $totale = $ecoTotale * $etudiant;
 
         $resultat = $ecolage - $totale;

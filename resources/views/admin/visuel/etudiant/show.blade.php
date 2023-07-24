@@ -55,12 +55,12 @@
         $view = App\Models\Etudiant::where('matricule',  $etudiant->matricule)->paginate(10);
         
         @endphp
-        <h4>{{$etudiant->nom}} {{$etudiant->prenon}} a étudié ici depuis l'année:</h4>
+        <h4>{{$etudiant->nom}} {{$etudiant->prenon}} a étudié ici depuis l'année scolaire:</h4>
        
          
          <ul style="margin-left: 50%">
             @forelse ($view as $views)
-              <li > <p style="color: red">{{$views->anne_detude}}</p> </li>
+              <li > <p style="color: blue">{{$views->anne_detude}}</p> </li>
             @empty
                 L'étudiant a commencé ces étude chez nous que depuis peut
             @endforelse
@@ -89,7 +89,7 @@
           @endphp
           <div class="col-6 themed-grid-col">
             @if($eco == 0)
-              <h3 style="color:blue">Ecolage est payée en totalité</h3>
+              <h3 style="color:green">Ecolage est payée en totalité</h3>
             @else
               <h3 style="color: red">{{number_format($eco, thousands_separator: ' ')}} Ar</h3>
             @endif
