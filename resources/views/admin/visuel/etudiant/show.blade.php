@@ -35,16 +35,16 @@
                   <h3>Année:</h3>
                 </div>
                 <div class="col-6 themed-grid-col">
-                  <p> {{$etudiant->nom}} </p>
-                  <p>{{$etudiant->prenon}}</p>
+                  <h3> {{$etudiant->nom}} </h3>
+                  <h3>{{$etudiant->prenon}}</h3>
                   @php 
                     $promotion = App\Models\Promotion::where('id',$etudiant->promotion)->value('title');
                     $classe = App\Models\Classe::where('id',$etudiant->classe)->value('title');
                   @endphp
-                  <p>{{$etudiant->matricule}}</p>
-                  <p>{{$promotion}}</p>
-                  <p>{{$classe}}</p>
-                  <p>{{$etudiant->anne_detude}}</p>
+                  <h3>{{$etudiant->matricule}}</h3>
+                  <h3>{{$promotion}}</h3>
+                  <h3>{{$classe}}</h3>
+                  <h3>{{$etudiant->anne_detude}}</h3>
                 </div>
             </div>
         </div>
