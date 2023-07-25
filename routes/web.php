@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EcolageController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\HomeAdminControllers;
 use App\Http\Controllers\ProfileController;
@@ -71,5 +72,9 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
 
     //ecolage par moi
     Route::get('/Scolarite/totale-ecolage-cette-anne/{id}/mois', [TotaleEcolageController::class, 'month'])->name('ecolage.totale.mois');
+
+    //payer un ecolage
+    Route::get('/Scolarite/paye-ecolage', [EcolageController::class, 'index'])->name('ecolage.paye');
+    Route::post('/Scolarite/paye-ecolage', [EcolageController::class, 'store'])->name('ecolage.paye.store');
 
 });

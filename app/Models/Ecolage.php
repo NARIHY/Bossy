@@ -9,6 +9,14 @@ class Ecolage extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'matricule',
+        'mois',
+        'anne_detude',
+        'prix',
+        'classe'
+    ];
+
     public function classe()
     {
         return $this->belongsToMany(Classe::class);

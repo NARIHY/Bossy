@@ -261,8 +261,8 @@
             </a>
           </li>
           <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
+            <a href="{{route('Admin.ecolage.paye')}}">
+              <i class="bi bi-circle"></i><span>Payer écolage</span>
             </a>
           </li>
         </ul>

@@ -144,7 +144,8 @@ class EtudiantController extends Controller
     public function cette(Etudiant $etudiant)
     {
         $date = date('Y');
-        $etudiant = Etudiant::orderBy('created_at', 'desc')->where('anne_detude', $date)->paginate(25);
+        $t = $date.'-'.$date+1;
+        $etudiant = Etudiant::orderBy('created_at', 'desc')->where('anne_detude', $t)->paginate(25);
         return view('admin.visuel.etudiant.now', [
             'etudiant' => $etudiant
         ]);

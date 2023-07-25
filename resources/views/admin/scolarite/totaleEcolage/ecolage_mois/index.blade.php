@@ -43,8 +43,8 @@ $classe = App\Models\Classe::where('id', $ecolage->classe)->value('title');
             <thead>
                 <tr>
                 
+                <th scope="col">Nov</th>
                 <th scope="col">Dec</th>
-                <th scope="col">Jan</th>
                 
                 </tr>
             </thead>
@@ -63,8 +63,8 @@ $classe = App\Models\Classe::where('id', $ecolage->classe)->value('title');
             <thead>
                 <tr>
                     
+                    <th scope="col">Jan</th>
                     <th scope="col">Fev</th>
-                    <th scope="col">Mars</th>
                     
                     
                 </tr>
@@ -83,8 +83,8 @@ $classe = App\Models\Classe::where('id', $ecolage->classe)->value('title');
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th scope="col">Mars</th>
                     <th scope="col">Avr</th>
-                    <th scope="col">Mai</th>
                     
                 </tr>
             </thead>
@@ -103,8 +103,8 @@ $classe = App\Models\Classe::where('id', $ecolage->classe)->value('title');
             <thead>
                 <tr>
                     
+                    <th scope="col">Mai</th>
                     <th scope="col">Juin</th>
-                    <th scope="col">Juil</th>
                 </tr>
             </thead>
             <tbody>
