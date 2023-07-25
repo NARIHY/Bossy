@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EcolageRequest;
+use App\Http\Requests\EcoRequest;
 use App\Models\Classe;
+use App\Models\Eco;
 use App\Models\Ecolage;
 use App\Models\TotaleEcolage;
 use App\Perso\EcolageCount;
@@ -58,5 +60,40 @@ class EcolageController extends Controller
         $ecolage = Ecolage::create($request->validated());
         $ecolage->classe()->sync(['ecolage_id' => $ecolage->id], $request->validated('classe'));
         return redirect()->route('Admin.ecolage.totale')->with('success','Payement réussi');
+    }
+
+    public function recupere()
+    {
+        return view('admin.scolarite.ecolage.liste.index');
+    }
+
+    public function search(Eco $eco, EcoRequest $request)
+    {
+        $eco = Eco::create($request->validated());
+        $anne_detude = $request->validated('anne_detude');
+        $maximumCount = 10;
+/*
+        meilleur moyen de recuperer les matricule des etudiants qui n'ont pas encore payer leur ecolage
+*/
+        $student = Ecolage::whereIn('matricule', function ($query) use ($anne_detude, $maximumCount){
+            $query->select('matricule')
+                    ->from('ecolages')
+                    ->where('anne_detude', $anne_detude)
+                    ->groupBy('matricule')
+                    ->havingRaw('COUNT(matricule) < ?', [$maximumCount]);
+        })->paginate(25);
+
+        $count = Ecolage::whereIn('matricule', function ($query) use ($anne_detude, $maximumCount){
+            $query->select('matricule')
+                    ->from('ecolages')
+                    ->where('anne_detude', $anne_detude)
+                    ->groupBy('matricule')
+                    ->havingRaw('COUNT(matricule) < ?', [$maximumCount]);
+        })->count();
+       
+        return view('admin.scolarite.ecolage.liste.liste',[
+            'student' => $student,
+            'count' => $count
+        ]);
     }
 }

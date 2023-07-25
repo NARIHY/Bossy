@@ -9,7 +9,7 @@
     <nav>
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{route('Admin.index')}}">Tableau de bord</a></li>
-        <li class="breadcrumb-item"><a href="">Scolarité</a></li>
+        <li class="breadcrumb-item">Scolarité</li>
         <li class="breadcrumb-item active">Liste des écolage cette année</li>
        
     </nav>

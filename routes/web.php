@@ -77,4 +77,10 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     Route::get('/Scolarite/paye-ecolage', [EcolageController::class, 'index'])->name('ecolage.paye');
     Route::post('/Scolarite/paye-ecolage', [EcolageController::class, 'store'])->name('ecolage.paye.store');
 
+    //ecolage impayer
+    Route::get('/Scolarite/ecolage-impayer', [EcolageController::class, 'recupere'])->name('ecolage.impaye');
+    Route::post('/Scolarite/ecolage-impayer', [EcolageController::class, 'search'])->name('ecolage.impaye.liste');
+    
+
+
 });

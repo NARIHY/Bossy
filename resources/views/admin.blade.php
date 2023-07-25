@@ -265,6 +265,11 @@
               <i class="bi bi-circle"></i><span>Payer écolage</span>
             </a>
           </li>
+          <li>
+            <a href="{{route('Admin.ecolage.impaye')}}">
+              <i class="bi bi-circle"></i><span>Ecolage impayer</span>
+            </a>
+          </li>
         </ul>
       </li><!-- End Tables Nav -->
 

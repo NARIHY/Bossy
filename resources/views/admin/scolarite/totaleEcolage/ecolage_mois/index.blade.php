@@ -12,7 +12,7 @@ $classe = App\Models\Classe::where('id', $ecolage->classe)->value('title');
     <nav>
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{route('Admin.index')}}">Tableau de bord</a></li>
-        <li class="breadcrumb-item"><a href="">Scolarité</a></li>
+        <li class="breadcrumb-item">Scolarité</li>
         <li class="breadcrumb-item active">Liste du montant d'écolage à payer par moi pour la classe de {{$classe}} </li>
        
     </nav>
