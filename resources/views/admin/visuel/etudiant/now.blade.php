@@ -15,64 +15,26 @@
     </nav>
   </div><!-- End Page Title -->
   <div class="container">
-    @if(session('success'))
-    <div class="alert alert-success" style="text-align: center">
-      {{session('success')}}
-    </div>
-    @endif
+    <form action="" method="post">
+        <h2 class="text-center">Choisir une année d'étude pour voir la liste des écolage impayer</h2>
+        @csrf
+        @php 
+        $date = date('Y');
+        @endphp
+        <label for="anne_detude">Choisir une année</label>
+        <select name="anne_detude" id="anne_detude" class="form-control">
+                <option value="">Selectionner une année</option>
+                @for($i = $date; $i >= 2020; $i--)
+                    <option value="{{$i}}-{{$i+1}}">{{$i}}-{{$i+1}}</option>    
+                @endfor
+        </select>
+        @error('anne_detude')
+            <p style="color: red">{{$message}}</p>
+        @enderror
+        <div class="d-grid gap-2" style="margin-top: 10px">
+            <input type="submit" class="btn btn-primary" value="rechercher">
+        </div>
 
-    <table class="table table-borderless datatable">
-      <thead>
-        <tr>
-              <th scope="col">Matricule</th>
-              <th scope="col">Nom</th>
-              <th scope="col">Prénon</th>
-              <th scope="col">Promotion</th>
-              <th scope="col">Classe</th>
-              <th scope="col">Année d'étude</th>
-              <th scope="col"style="color: red">Action</th>
-        </tr>
-      </thead>
-      
-          <tbody>
-            @foreach ($etudiant as $etudiants)
-            <tr>
-              <th scope="row" style="color: blue">{{$etudiants->matricule}}</th>
-          <td>{{$etudiants->nom}}</td>
-          <td>{{$etudiants->prenon}}</td>
-          @php 
-            $promotion = App\Models\Promotion::where('id',$etudiants->promotion)->value('title');
-            $classe = App\Models\Classe::where('id',$etudiants->classe)->value('title');
-          @endphp
-          <td>{{$promotion}}</td>
-          <td>{{$classe}}</td>
-          <td>{{$etudiants->anne_detude}}</td>
-          <td>
-              <div class="row mb-3 text-center">
-                  <div class="col-4 themed-grid-col">
-                      <a href="{{route('Admin.etudiant.show', ['id' => $etudiants->id])}}" class="btn btn-dark"><i class="bi bi-eye-fill"></i></a>
-                  </div>
-                  <div class="col-4 themed-grid-col">
-                      <a href="{{route('Admin.etudiant.edit', ['id' => $etudiants->id])}}" class="btn btn-primary"><i class="bi bi-wrench"></i></a>
-                  </div>
-                  <div class="col-4 themed-grid-col">
-                    <form action="{{route('Admin.etudiant.delete', ['id' => $etudiants->id])}}" method="post">
-                      @csrf 
-                      @method('DELETE')
-                      <input type="submit" class="btn btn-danger" value="Suprimer">
-                    </form>
-                      
-                  </div>
-                </div>
-          </td>
-            </tr>
-            
-      
-            @endforeach
-          </tbody>
-          
-          
-    </table>
-    
+    </form>
   </div>
 @endsection

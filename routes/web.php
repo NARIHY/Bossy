@@ -50,6 +50,7 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     //gerer la liste des étudiants
     Route::get('/Etudiant', [EtudiantController::class, 'index'])->name('etudiant');
     Route::get('/Etudiant/nos-etudiant-cette-annee', [EtudiantController::class, 'cette'])->name('etudiant.cette');
+    Route::post('/Etudiant/nos-etudiant-cette-annee', [EtudiantController::class, 'now'])->name('etudiant.now');
     Route::get('/Etudiant/Ajouter-un-etudiants', [EtudiantController::class, 'create'])->name('etudiant.create');
     Route::post('/Etudiant/Ajouter-un-etudiants', [EtudiantController::class, 'store'])->name('etudiant.store');
     Route::get('/Etudiant/{id}/voir-un-etudiant', [EtudiantController::class, 'show'])->name('etudiant.show');

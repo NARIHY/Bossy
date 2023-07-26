@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EtudiantRequest;
 use App\Http\Requests\EtudiantUpdateRequest;
+use App\Http\Requests\NowStudentRequest;
 use App\Models\Classe;
 use App\Models\Etudiant;
 use App\Models\Promotion;
@@ -141,13 +142,34 @@ class EtudiantController extends Controller
         return redirect()->route('Admin.etudiant')->with('success', 'Suppéssion réussi');
     }
 
-    public function cette(Etudiant $etudiant)
+    /**
+     * retourne une vue
+     *
+     * @return View
+     */
+    public function cette()
     {
-        $date = date('Y');
-        $t = $date.'-'.$date+1;
-        $etudiant = Etudiant::orderBy('created_at', 'desc')->where('anne_detude', $t)->paginate(25);
-        return view('admin.visuel.etudiant.now', [
-            'etudiant' => $etudiant
+        return view('admin.visuel.etudiant.now');
+    }
+
+    /**
+     * Retourne une vue
+     *
+     * @param NowStudentRequest $request
+     * @return View
+     */
+    public function now(NowStudentRequest $request)
+    {
+        $anne_detude = $request->validated('anne_detude');
+        $student = Etudiant::where('anne_detude', $anne_detude)
+                    ->paginate(25);
+        $count = Etudiant::where('anne_detude', $anne_detude)->count();
+        
+        return view('admin.visuel.etudiant.liste.liste', [
+                        'student' => $student,
+                        'anne_detude' => $anne_detude,
+                        'count' => $count
         ]);
+
     }
 }
