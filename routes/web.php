@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EcolageController;
+use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\HomeAdminControllers;
 use App\Http\Controllers\ProfileController;
@@ -82,6 +83,12 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     Route::get('/Scolarite/ecolage-impayer', [EcolageController::class, 'recupere'])->name('ecolage.impaye');
     Route::post('/Scolarite/ecolage-impayer', [EcolageController::class, 'search'])->name('ecolage.impaye.liste');
     
-
+    //employer
+    Route::get('/Employer',[EmployeController::class, 'index'])->name('employee');
+    Route::get('/Employer/ajouter-un-employer',[EmployeController::class, 'create'])->name('employee.create');
+    Route::post('/Employer/ajouter-un-employer',[EmployeController::class, 'store'])->name('employee.store');
+    Route::get('/Employer/{id}/edition', [EmployeController::class, 'edit'])->name('employee.edit');
+    Route::put('/Employer/{id}/edition', [EmployeController::class, 'update'])->name('employee.update');
+    Route::get('/Employer/{id}/voir', [EmployeController::class, 'see'])->name('employee.see');
 
 });

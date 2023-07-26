@@ -275,12 +275,12 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-clipboard"></i><span>Nos Employers</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Chart.js</span>
+            <a href="{{route('Admin.employee')}}">
+              <i class="bi bi-circle"></i><span>Liste de tous nos employer</span>
             </a>
           </li>
           <li>
