@@ -289,7 +289,7 @@
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{route('Admin.subject')}}">
               <i class="bi bi-circle"></i><span>Liste de tous nos matières</span>
             </a>
           </li>

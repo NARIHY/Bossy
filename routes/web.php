@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeAdminControllers;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TotaleEcolageController;
 use Illuminate\Support\Facades\Route;
 
@@ -98,4 +99,11 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     Route::post('/Travaille/creation', [JobController::class, 'store'])->name('job.store');
     Route::get('/Travaille/{id}/edition', [JobController::class, 'edit'])->name('job.edit');
     Route::put('/Travaille/{id}/edition', [JobController::class, 'update'])->name('job.update');
+
+        //Subject
+    Route::get('/Matiere', [SubjectController::class, 'index'])->name('subject');
+    Route::get('/Matiere/creation', [SubjectController::class, 'create'])->name('subject.create');
+    Route::post('/Matiere/creation', [SubjectController::class, 'store'])->name('subject.store');
+    Route::get('/Matiere/{id}/edition', [SubjectController::class, 'edit'])->name('subject.edit');
+    Route::put('/Matiere/{id}/edition', [SubjectController::class, 'update'])->name('subject.update');
 });

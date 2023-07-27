@@ -83,7 +83,7 @@
             <p style="color: red">{{$message}}</p>
         @enderror
 
-        <div class="row mb-3 text-center">
+        <div class="row mb-3 text-center" style="margin-top: 20px">
             <div class="col-6 themed-grid-col">
                 <label for="picture" style="float: left; margin-top:30%">Editer cette photo de notre employé(e)</label>
                 <input type="file" name="picture" id="picture" class="form-control @error('picture') is-invalid @enderror">
