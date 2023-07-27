@@ -275,7 +275,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-clipboard"></i><span>Nos Employers</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-clipboard"></i><span>Gestion de l'école</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -284,13 +284,13 @@
             </a>
           </li>
           <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>ApexCharts</span>
+            <a href="{{route('Admin.job')}}">
+              <i class="bi bi-circle"></i><span>Liste de tous nos emploie</span>
             </a>
           </li>
           <li>
             <a href="">
-              <i class="bi bi-circle"></i><span>ECharts</span>
+              <i class="bi bi-circle"></i><span>Liste de tous nos matières</span>
             </a>
           </li>
         </ul>

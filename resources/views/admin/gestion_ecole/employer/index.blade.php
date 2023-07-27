@@ -9,13 +9,13 @@
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{route('Admin.index')}}">Tableau de bord</a></li>
-        <li class="breadcrumb-item"><a href="{{route('Admin.employee')}}">Nos employer</a></li>
+        <li class="breadcrumb-item">Gestion de l'école</li>
         <li class="breadcrumb-item active">Liste de tous nos employers</li>
       </ol>
     </nav>
   </div><!-- End Page Title -->
 
-  <div>
+  <div class="container"> 
     @if(session('success'))
       <div class="alert alert-success" style="text-align: center">
         {{session('success')}}

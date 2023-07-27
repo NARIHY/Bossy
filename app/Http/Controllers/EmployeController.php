@@ -21,7 +21,7 @@ class EmployeController extends Controller
     public function index(): View
     {
         $employe = Employee::paginate(25);
-        return view('admin.employer.index',[
+        return view('admin.gestion_ecole.employer.index',[
             'employe' => $employe
         ]); 
     }
@@ -35,7 +35,7 @@ class EmployeController extends Controller
     {
         $job = Job::pluck('title', 'id');
         $subject = Subject::pluck('title', 'id');
-        return view('admin.employer.action.create', [
+        return view('admin.gestion_ecole.employer.action.create', [
             'job' => $job,
             'subject' => $subject
         ]);        
@@ -81,7 +81,7 @@ class EmployeController extends Controller
         $employee = Employee::findOrFail($id);
         $job = Job::pluck('title', 'id');
         $subject = Subject::pluck('title', 'id');
-        return view('admin.employer.action.edit', [
+        return view('admin.gestion_ecole.employer.action.edit', [
             'employee' => $employee,
             'job' => $job,
             'subject' => $subject
@@ -123,7 +123,7 @@ class EmployeController extends Controller
     public function see(string $id): View 
     {
         $employee = Employee::findOrFail($id);
-        return view('admin.employer.view.index', [
+        return view('admin.gestion_ecole.employer.view.index', [
             'employee' =>$employee
         ]);
     }

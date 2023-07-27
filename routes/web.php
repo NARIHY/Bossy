@@ -5,6 +5,7 @@ use App\Http\Controllers\EcolageController;
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\HomeAdminControllers;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\TotaleEcolageController;
@@ -90,5 +91,11 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     Route::get('/Employer/{id}/edition', [EmployeController::class, 'edit'])->name('employee.edit');
     Route::put('/Employer/{id}/edition', [EmployeController::class, 'update'])->name('employee.update');
     Route::get('/Employer/{id}/voir', [EmployeController::class, 'see'])->name('employee.see');
-
+    
+    //Job 
+    Route::get('/Travaille', [JobController::class, 'index'])->name('job');
+    Route::get('/Travaille/creation', [JobController::class, 'create'])->name('job.create');
+    Route::post('/Travaille/creation', [JobController::class, 'store'])->name('job.store');
+    Route::get('/Travaille/{id}/edition', [JobController::class, 'edit'])->name('job.edit');
+    Route::put('/Travaille/{id}/edition', [JobController::class, 'update'])->name('job.update');
 });

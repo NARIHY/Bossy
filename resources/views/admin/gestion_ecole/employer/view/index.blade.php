@@ -8,7 +8,7 @@
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{route('Admin.index')}}">Tableau de bord</a></li>
-        <li class="breadcrumb-item"><a href="{{route('Admin.employee')}}">Nos employer</a></li>
+        <li class="breadcrumb-item">Gestion de l'école</li>
         <li class="breadcrumb-item active">{{$employee->name .' ' . $employee->last_name}}</li>
       </ol>
     </nav>
