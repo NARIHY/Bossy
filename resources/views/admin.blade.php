@@ -212,7 +212,7 @@
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{route('Admin.information')}}">
               <i class="bi bi-circle"></i><span>Informations</span>
             </a>
           </li>

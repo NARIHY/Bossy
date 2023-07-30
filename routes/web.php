@@ -5,6 +5,7 @@ use App\Http\Controllers\EcolageController;
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\HomeAdminControllers;
+use App\Http\Controllers\InformationController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PromotionController;
@@ -106,4 +107,12 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     Route::post('/Matiere/creation', [SubjectController::class, 'store'])->name('subject.store');
     Route::get('/Matiere/{id}/edition', [SubjectController::class, 'edit'])->name('subject.edit');
     Route::put('/Matiere/{id}/edition', [SubjectController::class, 'update'])->name('subject.update');
+
+    //information
+    Route::get('/Information', [InformationController::class, 'index'])->name('information');
+    Route::get('/Information/creation-d-un-information', [InformationController::class, 'create'])->name('information.create');
+    Route::post('/Information/creation-d-un-information', [InformationController::class, 'store'])->name('information.store');
+    Route::get('/Information/{id}/edition', [InformationController::class, 'modify'])->name('information.modify');
+    Route::put('/Information/{id}/edition', [InformationController::class, 'update'])->name('information.update');
+    Route::delete('/Information/{id}/supression', [InformationController::class, 'delete'])->name('information.delete');
 });
