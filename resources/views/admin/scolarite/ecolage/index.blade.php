@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="pagetitle">
-    <h1>St joseph</h1>
+    <h1>Bossy</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{route('Admin.index')}}">Tableau de bord</a></li>

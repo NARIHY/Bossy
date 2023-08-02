@@ -5,7 +5,7 @@
 @section('content')
 <div class="pagetitle">
     <a href="{{route('Admin.subject.create')}}" class="btn btn-success" style="float: right">Ajouter un emploie</a>
-    <h1>St joseph</h1>
+    <h1>Bossy</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{route('Admin.index')}}">Tableau de bord</a></li>

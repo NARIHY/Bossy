@@ -6,11 +6,11 @@
 
     <div class="pagetitle">
        
-        <h1>St joseph</h1>
+        <h1>Bossy</h1>
         <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('Admin.index')}}">Tableau de bord</a></li>
-            <li class="breadcrumb-item"><a href="{{route('Admin.home.St joseph')}}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{route('Admin.home.Bossy')}}">Home</a></li>
             <li class="breadcrumb-item active">Edition de {{$acceuil->title}}</li>
         </ol>
         </nav>

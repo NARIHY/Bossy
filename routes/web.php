@@ -44,12 +44,12 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     //Route de l'accceuil de l'admin
     Route::get('/',[AdminController::class, 'index'])->name('index');
     //Route Home ici
-    Route::get('/Home-St joseph', [HomeAdminControllers::class, 'index'])->name('home.St joseph');
-    Route::get('/Home-St joseph/creation', [HomeAdminControllers::class, 'create'])->name('home.create');
-    Route::post('/Home-St joseph/creation', [HomeAdminControllers::class, 'store'])->name('home.store');
-    Route::delete('/Home-St joseph/{id}/Supression', [HomeAdminControllers::class, 'delete'])->name('home.delete');
-    Route::get('/Home-St joseph/{id}/edition', [HomeAdminControllers::class, 'edit'])->name('home.edit');
-    Route::put('/Home-St joseph/{id}/edition', [HomeAdminControllers::class, 'update'])->name('home.update');
+    Route::get('/Home-Bossy', [HomeAdminControllers::class, 'index'])->name('home.Bossy');
+    Route::get('/Home-Bossy/creation', [HomeAdminControllers::class, 'create'])->name('home.create');
+    Route::post('/Home-Bossy/creation', [HomeAdminControllers::class, 'store'])->name('home.store');
+    Route::delete('/Home-Bossy/{id}/Supression', [HomeAdminControllers::class, 'delete'])->name('home.delete');
+    Route::get('/Home-Bossy/{id}/edition', [HomeAdminControllers::class, 'edit'])->name('home.edit');
+    Route::put('/Home-Bossy/{id}/edition', [HomeAdminControllers::class, 'update'])->name('home.update');
 
     //gerer la liste des étudiants
     Route::get('/Etudiant', [EtudiantController::class, 'index'])->name('etudiant');
